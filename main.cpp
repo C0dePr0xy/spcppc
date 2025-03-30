@@ -1,5 +1,8 @@
 #include <iostream>
 #include <cstdlib>
+#include <fstream>
+
+int userChoice;
 
 class pricer // Class made for storing price and quantity of components.
 {
@@ -8,7 +11,24 @@ class pricer // Class made for storing price and quantity of components.
     int x_CPU = 0, x_GPU = 0, x_MOBO = 0, x_PSU = 0, x_CASE = 0, x_RAM = 0; // Quantity of components.
 };
 
-void fullBuild(), clear();
+pricer price, quantity;
+
+void fullBuild(), clear(), exportFile();
+
+// Function that exports calculation results in a text file.
+void exportFile()
+{
+    std::ofstream exportFile("result.txt");
+    exportFile << "Calculation Visual...\n\n";
+    exportFile << "[CPU Cost] $" << price.CPU << " * " << quantity.x_CPU << " ---> $" << price.CPU * quantity.x_CPU << "\n";
+    exportFile << "[GPU Cost] $" << price.GPU << " * " << quantity.x_GPU << " ---> $" << price.GPU * quantity.x_GPU << "\n";
+    exportFile << "[MOBO Cost] $" << price.MOBO << " * " << quantity.x_MOBO << " ---> $" << price.MOBO * quantity.x_MOBO << "\n";
+    exportFile << "[PSU Cost] $" << price.PSU << " * " << quantity.x_PSU << " ---> $" << price.PSU * quantity.x_PSU << "\n";
+    exportFile << "[CASE Cost] $" << price.CASE << " * " << quantity.x_CASE << " ---> $" << price.CASE * quantity.x_CASE << "\n";
+    exportFile << "[RAM Cost] $" << price.RAM << " * " << quantity.x_RAM << " ---> $" << price.RAM * quantity.x_RAM << "\n\n";
+    exportFile << "You need to save roughly $" << price.CPU * quantity.x_CPU + price.GPU * quantity.x_GPU + price.MOBO * quantity.x_MOBO + price.PSU * quantity.x_PSU + price.CASE * quantity.x_CASE + price.RAM * quantity.x_RAM << "." << "\n\n";
+    exportFile.close();
+}
 
 // Portably clears the terminal/ console screen. --Windows, Mac, Linux
 void clear()
@@ -23,7 +43,6 @@ void clear()
 void fullBuild()
 {
     clear();
-    pricer price, quantity;
 
     // Collects all component prices & quantities from the user.
     std::cout << "Simple PC Part Price Calculator [SPCPPC]\n\n";
@@ -67,7 +86,8 @@ void fullBuild()
 
     // Displays total cost of components * quantiy of components each.
     std::cout << "You need to save roughly $" << price.CPU * quantity.x_CPU + price.GPU * quantity.x_GPU + price.MOBO * quantity.x_MOBO + price.PSU * quantity.x_PSU + price.CASE * quantity.x_CASE + price.RAM * quantity.x_RAM << "." << "\n\n";
-    std::cout << "[Press any key to exit the progam.]\n";
+    exportFile();
+    std::cout << "[Press any key to exit the program.]\n";
     std::cin.ignore();
     std::cin.get();
     clear();
