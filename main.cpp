@@ -11,6 +11,19 @@ class pricer // Class made for storing price and quantity of components.
     int x_CPU = 0, x_GPU = 0, x_MOBO = 0, x_PSU = 0, x_CASE = 0, x_RAM = 0; // Quantity of components.
 };
 
+class tax
+{
+    public:
+    double tax;
+    std::string state;
+    void taxCalc(); // Will calculate state tax. (United States of America)
+
+    void taxCalc()
+    {
+        // Automatically calculate tax based on state selected by user. (United States of America)
+    }
+}
+
 pricer price, quantity;
 
 void fullBuild(), clear(), exportFile();
