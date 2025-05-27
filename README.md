@@ -17,5 +17,5 @@ https://github.com/user-attachments/assets/1e366f1b-45dc-4606-9c60-9d763eeaf3aa
     ```
 3. Compile the program:
     ```sh
-    g++ b.cpp -o b
+    g++ main.cpp -o spcppc
     ```
