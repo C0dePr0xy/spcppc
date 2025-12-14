@@ -22,7 +22,7 @@ class tax
     {
         // Automatically calculate tax based on state selected by user. (United States of America)
     }
-}
+};
 
 pricer price, quantity;
 
