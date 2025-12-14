@@ -16,12 +16,12 @@ class tax
     public:
     double tax;
     std::string state;
-    void taxCalc(); // Will calculate state tax. (United States of America)
+    //void taxCalc(); // Will calculate state tax. (United States of America)
 
-    void taxCalc()
-    {
+    //void taxCalc()
+    //{
         // Automatically calculate tax based on state selected by user. (United States of America)
-    }
+    //}
 };
 
 pricer price, quantity;
