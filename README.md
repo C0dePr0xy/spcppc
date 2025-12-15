@@ -5,6 +5,8 @@ A simple program that calculates the rough cost of PC parts. I made this because
 
 https://github.com/user-attachments/assets/1e366f1b-45dc-4606-9c60-9d763eeaf3aa
 
+# Download 📩
+https://github.com/C0dePr0xy/spcppc/releases/download/wb/spcppc.exe
 # Manual Clone & Build 👷🏻‍♂️
 
 1. Clone the repository:
